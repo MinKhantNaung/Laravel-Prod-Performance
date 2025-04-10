@@ -79,9 +79,23 @@ php artisan config:cache
 - To test caching: (I will use Tinker)
 ```bash
 php artisan tinker 
-Cache::put('foo', 'bar', 600);
-$value = Cache::get('foo'); // see 'bar'
+> Cache::put('foo', 'bar', 600);
+> $value = Cache::get('foo');
+= 'bar'
+
+# Check Drivers
+> config('cache.default')
+= 'redis'
+
+> config('session.driver')
+= 'redis'
 ```
+- Now, check Redis CLI directly:
+```bash
+redis-cli
+keys *
+```
+- You should see keys.
 
 4. **Queue Your Time-Consuming Tasks**
 5. **Set Compression Headers On Text Format Files**
