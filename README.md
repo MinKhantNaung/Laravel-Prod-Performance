@@ -99,6 +99,48 @@ keys *
 
 4. **Queue Your Time-Consuming Tasks**
 5. **Set Compression Headers On Text Format Files**
+#### Enabling gzip compression in Nginx
+- Edit the Nginx configuration file:
+- Open your Nginx configuration (for a specific site):
+```bash
+sudo nano /etc/nginx/sites-available/your-site
+```
+- Enable gzip Compression:
+- Look for the http block, and within it, you can add or modify the gzip settings
+```bash
+http {
+    # Enable gzip compression
+    gzip on;
+    # Set compression level (1-9, 9 being the highest)
+    gzip_comp_level 6;
+    # Enable compression for response sizes larger than 1000 bytes
+    gzip_min_length 1000;
+    # Add a header to let browsers know the content is compressed
+    gzip_vary on;
+    gzip_types 
+        text/plain
+        text/css
+        application/javascript
+        application/json
+        text/javascript
+        application/x-javascript
+        text/xml
+        application/xml
+        application/xml+rss
+        font/woff2
+        image/svg+xml;
+
+    # Additional configuration...
+}
+```
+- Save and Exit:
+- Test and Reload Nginx:
+```bash
+sudo nginx -t
+sudo systemctl reload nginx
+```
+- Verify Compression:
+- In Google Chrome (your site), open the Developer Tools (right-click -> "Inspect"), go to the Network tab, and refresh the page. Check the "Content-Encoding" header for the file type (it should show gzip for compressed files).
 6. **Set Cache Headers On Static Assets**
    https://laravel.com/docs/12.x/responses#cache-control-middleware
 7. **Consider Using A CDN To Serve Assets**
