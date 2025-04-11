@@ -1,7 +1,7 @@
 
 # The Ultimate Performance For Laravel Apps
 
-1. **Use In-Built Performance Quick Wins**
+## **1. Use In-Built Performance Quick Wins**
 ```bash
 php artisan optimize
 php artisan config:cache
@@ -10,12 +10,12 @@ php artisan route:cache
 php artisan view:cache
 ```
 
-2. **Optimize Composer**
+## **2. Optimize Composer**
 ```bash
 composer install --prefer-dist --no-dev -o
 ```
 
-3. **Choose The Right Drivers**
+## **3. Choose The Right Drivers**
 - For caching in production, developers recommend the in-memory cache drivers such as **Redis, Memcached, or DynamoDB.**
 
 - For queueing, developers recommend the **Redis, SQS, or Beanstalkd drivers.**
@@ -97,8 +97,8 @@ keys *
 ```
 - You should see keys.
 
-4. **Queue Your Time-Consuming Tasks**
-5. **Set Compression Headers On Text Format Files**
+## **4. Queue Your Time-Consuming Tasks**
+## **5. Set Compression Headers On Text Format Files**
 #### Enabling gzip compression in Nginx
 - Edit the Nginx configuration file:
 - Open your Nginx configuration (for a specific site):
@@ -141,12 +141,12 @@ sudo systemctl reload nginx
 ```
 - Verify Compression:
 - In Google Chrome (your site), open the Developer Tools (right-click -> "Inspect"), go to the Network tab, and refresh the page. Check the "Content-Encoding" header for the file type (it should show gzip for compressed files).
-6. **Set Cache Headers On Static Assets**
+## **6. Set Cache Headers On Static Assets**
    https://laravel.com/docs/12.x/responses#cache-control-middleware
-7. **Consider Using A CDN To Serve Assets**
-8. **Minify Your JS and CSS Code**
-9. **Use Cache Wisely**
-10. **Identify Your App's Performance Bottlenecks**
+## **7. Consider Using A CDN To Serve Assets**
+## **8. Minify Your JS and CSS Code**
+## **9. Use Cache Wisely**
+## **10. Identify Your App's Performance Bottlenecks**
 
 ---
 
